@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>judy's homepage</title>
+    <style type="text/css">
+        @font-face {
+            font-family: 'dongBrush';
+            src: url("DungGeunMo.ttf");
+        }
+        body{ margin: 0; padding: 0;}
+        ul, li{ list-style: none;}
+        a{ text-decoration: none;}
+
+        .wrap{ overflow: scroll; margin: 100px auto; width: 500px; height: 600px; background: rgb(177, 176, 176);}
+        .header{ display: flex; 
+            align-items: center;
+             justify-content: space-between;
+              background: blue; 
+              box-shadow: inset 2px 2px  white;
+                border-bottom: 2px solid black;    
+                border-top: 1px solid black;
+                border-left: 1px solid black;
+                border-right: 1px solid black;
+        }
+        .header { height: 50px; line-height: 50px; font-size: 20px;}
+        .header_btn a{ color: white; display: inline-block; margin-right: 10px; font-size: 10px; text-shadow: 2px 3px 0 black; }
+        
+        .wrap_top{ border-bottom: 1px solid black; text-shadow: 0px 1px 0 white;}
+        .menu{ display: flex; padding-left: 0;}
+        .menu li{ width: 100px; height: 30px; line-height: 30px; text-align: center;}
+        .menu li a{ display: block; color : #292929;}
+        .menu li a:hover{ color: #fff; text-decoration: underline;}
+
+        .profile{ width: 90%; padding-top: 30px; display: flex; justify-content: space-around;}
+        .profile_img{ width: 100px; height: 120px; border: 1px solid black; transform: scale(1); }
+
+        .info p{ margin: 0 0 15px 0;}
+        .talk p{margin-left: 50px; margin-top: 30px; 
+            text-shadow: 1px 1px 0 white ;
+            font-size: 15pt;
+        }
+    </style>
+    
+</head>
+
+<body bgcolor="black" style="font-family: dongBrush;">
+    <div class="wrap">
+        <div class="header">
+            <b style="text-shadow: 1px 1px 0 white;">&nbsp; judy's profile</b>
+            <div class="header_btn">
+                <span><a href="#"><b>__</b></a></span>
+                <span><a href="#"><b>□</b></a></span>
+                <span><a href="#"><b>Ⅹ</b></a></span>
+            </div>
+        </div>
+        
+        <div class="wrap_top">
+            <div class="gnb">
+                <ul class="menu">
+                    <li><a href="profile.html"><ins>P</ins>rofile</a></li>
+                    <li><a href="hobby.html"><ins>H</ins>obby</a></li>
+                    <li><a href="roadmap.html"><ins>R</ins>oadMap</a></li>
+                    <li><a href="signup.html"><ins>S</ins>ign up</a></li>
+                    <li><a href="index.html"><ins>L</ins>ogout</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="profile">
+            <div class="img">
+                <img class="profile_img" src="image\judy.jpg" >
+            </div>
+            <div class="info">
+                <p>👩🏻 황 주현</p>
+                <p>💌 wngus_0896@naver.com</p>
+                <p>좌우명 : 후회하지 말자</p>
+                <p>전공 : 정보통신공학과</p>
+                <p>진로희망 : 웹개발자</p>
+            </div>
+        </div>
+        <div class="talk">
+            <p><b>배움에 있어 더디고 모자르지만 <br>
+                포기하지 않는 의지로 열심히 하겠습니다.</b></p>
+        </div>
+        <br><br>
+        
+        <form action="javascript:saveGuestbook();" name="guestbookFrm">
+            <legend>일촌평🐾</legend>
+            <table style="border: 2px dotted #000; padding: 2px; width: 100%; padding: 3px 10px;">
+                <tr>
+                    <th style="font-size: 10px;"><label for="username">닉네임</label></th>
+                    <td><input type="text" name="username" id="username"></td>
+                    <th style="font-size: 10px;"><label for="content">내용</label></th>
+                    <td><input type="text" name="content" id="content"></td>
+                    <th colspan="2">
+                        <input type="submit" value="저장" class="save">
+                    </th>
+                </tr>
+            </table>
+        </form>
+        <table id="tbl-guestbook">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>내용</th>
+                    <th>일시</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <style>
+        .save{
+            border: 2px dashed black; 
+          background-color: rgb(153, 153, 153); 
+          box-shadow: inset 2px 2px white;
+          font-family: dongBrush;
+        }
+        #tbl-guestbook {
+            
+            margin: 5px 0;
+            border: 1px dotted #000;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        #tbl-guestbook th, #tbl-guestbook td {
+            border: 1px dotted #000;
+            padding: 1px;
+        }
+        </style>
+        <script>
+        class Guestbook {
+            constructor(username, content, datetime = Date.now()){
+                this.username = username;
+                this.content = content;
+                this.datetime = datetime;
+            }
+        }
+    
+        /**
+         * submit핸들러 - 유효성검사
+         */
+        document.guestbookFrm.addEventListener('submit', (e) => {
+            if(!username.value){
+                alert("이름을 입력해주세요.");
+                e.preventDefault();
+                return;
+            }
+            if(!content.value){
+                alert("내용을 입력해주세요.");
+                e.preventDefault();
+                return;
+            }
+        });
+    
+        /**
+         * 폼제출 - localStorage에 저장
+         */ 
+        const saveGuestbook = () => {
+            // 1. guestbook객체 생성
+            const guestbook = new Guestbook(username.value, content.value);
+            console.log(guestbook);
+    
+            // 2. 배열에 추가
+            const guestbooks = JSON.parse(localStorage.getItem('guestbooks')) || [];
+            guestbooks.push(guestbook);
+            console.log(guestbooks);
+    
+            // 3. localStorage에 저장
+            localStorage.setItem('guestbooks', JSON.stringify(guestbooks));
+    
+            // 4. 초기화
+            document.guestbookFrm.reset();
+    
+            // 5. 방명록 렌더링
+            renderGuestbook(guestbooks);
+        };
+    
+        const datetimeFormatter = (date) => {
+            const f = (n) => n >= 10 ? n : "0" + n;
+            const MM = f(date.getMonth() + 1);
+            const dd = f(date.getDate());
+            const HH = f(date.getHours());
+            const mm = f(date.getMinutes());
+    
+            return `${MM}/${dd} ${HH}:${mm}`;
+        }
+    
+        const renderGuestbook = (guestbooks = JSON.parse(localStorage.getItem('guestbooks'))) => {
+            const tbody = document.querySelector("#tbl-guestbook tbody");
+            tbody.innerHTML = ""; // 기존코드 제거
+    
+            // optional chaining ?. 앞의 변수가 undefined/null일때도 오류를 유발하지 않음.
+            guestbooks?.reverse(); // 역순정렬
+            
+            if(guestbooks){
+                guestbooks.forEach(({username, content, datetime}, index) => {
+                    tbody.innerHTML += `
+                    <tr>
+                        
+                        <td>${username}</td>
+                        <td>${content}</td>
+                        <td>${datetimeFormatter(new Date(datetime))}</td>
+                    </tr>
+                    `;
+                });
+            }
+            else {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align: center;">등록된 방명록이 없습니다.</td></tr>';
+            }
+        }
+        </script>
+        
+    </div>
+</body>
+</html>

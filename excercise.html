@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>HIGHLIGHT</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <style>
+        body{ background: black; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; color: #000; margin: 0; padding: 0; position: relative; height: 100vh;}
+        .swiper{padding-top:70px; width: 700px; height: 70vh; background: black;}
+        .swiper-slide{ background-size: cover; background-repeat: no-repeat; background-position: center;}
+        .swiper-slide.slide1{ background-image: url(image/러닝2.jpg);}
+        .swiper-slide.slide2{ background-image: url(image/러닝3.jpg);}
+        .swiper-slide.slide3{ background-image: url(image/러닝4.jpg);}
+        .swiper-slide.slide4{ background-image: url(image/러닝5.jpg);}
+        .swiper-slide.slide5{ background-image: url(image/러닝6.jpg);}
+        .swiper-slide.slide6{ background-image: url(image/러닝7.jpg);}
+        .swiper-slide.slide7{ background-image: url(image/러닝8.jpg);}
+        .swiper-slide.slide8{ background-image: url(image/러닝10.jpg);}
+        .swiper-slide.slide9{ background-image: url(image/러닝11.jpg);}
+        
+        
+
+        .swiper-pagination{ width: 10px; height: 10px; color: #fff;}
+    </style>
+</head>
+
+<body>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide1">Slide 1</div>
+            <div class="swiper-slide slide2">Slide 2</div>
+            <div class="swiper-slide slide3">Slide 3</div>
+            <div class="swiper-slide slide4">Slide 4</div>
+            <div class="swiper-slide slide5">Slide 5</div>
+            <div class="swiper-slide slide6">Slide 6</div>
+            <div class="swiper-slide slide7">Slide 7</div>
+            <div class="swiper-slide slide8">Slide 8</div>
+            <div class="swiper-slide slide9">Slide 9</div>
+            
+        </div>
+
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+            direction: 'horizontal',
+            loop: true,
+            autoplay: {
+            delay: 1500,
+            },
+
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }
+        });
+    </script>
+
+</body>
+</html>
